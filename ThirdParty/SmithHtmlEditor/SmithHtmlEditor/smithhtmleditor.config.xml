@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<smithhtmleditor>
+  <visualmode>
+    <fontfamilies>
+      <add value="Arial" />
+      <add value="Calibri" />
+      <add value="Cambria" />
+      <add value="Candara" />
+      <add value="Century" />
+      <add value="Consolas" />
+      <add value="Constantia" />
+      <add value="Corbel" />
+      <add value="Courier New" />
+      <add value="Segoe UI" />
+      <add value="Tahoma" />
+      <add value="Times New Roman" />
+      <add value="Verdana" />
+      <add value="Vrinda" />
+    </fontfamilies>
+  </visualmode>
+  <sourcemode>
+    <fontfamily value="Consolas" />
+    <fontsize value="12" />
+  </sourcemode>
+</smithhtmleditor>

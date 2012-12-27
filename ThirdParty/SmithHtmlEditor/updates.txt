@@ -1,0 +1,26 @@
+updates:
+
+2011/05/02
+1. Add a dependency property named BindingContent to support binding html content to the editor. This property raise update notification via the StatusTextChanged event of the webbrowser control. A new window named BindingTestWindow in SmithHtmlEditor.Demo show how this property works.
+2. A stylesheet is load from the file "smithhtmleditor.stylesheet.css" to set the default style of the editing document when the control is initializing. This can help us to set how the document looks.
+3. Use the xml file "smithhtmleditor.config.xml" to setup the fonts used in the control. So we can configurate the fonts we need.
+4. Update the appearance of the editor under source mode.
+
+2011/01/23
+1. Add HtmlDocument class and HtmlDocument.Range class for document editing instead of directly operating IHTMLDocument2 interface and System.Windows.Forms.HtmlDocument object.
+2. Update HtmlEditingExtension class to extension methods for HtmlDocument object. And some methods were moved into HtmlDocument class.
+3. Fix a bug in HtmlEditor.WordCount property.
+4. Update the HtmlEditor.ContentText property as a get-only property.
+5. The HtmlEditor.Document property is changed from type System.Windows.Forms.HtmlDocument to Smith.WPF.HtmlEditor.HtmlDocument.
+6. Add editing methods for HtmlEditor class.
+7. Add DocumentReady event for HtmlEditor class. This event will be raised after the document is ready to use. And it provides a way to load initial content to editor. See the demo.
+8. Add DocumentStateChanged event for HtmlEditor class to notify the change of document state.
+
+2010/11/20
+Upgraded the word counting algorithm and fixed a bug in color selecting.
+
+2010/10/19
+Globlization and localization feature is added into this version.
+
+2010/10/17
+It is a preview version for test and provides basic functions for common use.

@@ -1,0 +1,46 @@
+﻿<Window x:Class="Shell.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" VerticalAlignment="Center" Margin="3">Assembly:</TextBlock>
+            <ComboBox Grid.Column="1" VerticalAlignment="Center" Margin="3" ItemsSource="{Binding Assemblies}" SelectedItem="{Binding AssemblyName}" />
+            <TextBlock Grid.Column="2" VerticalAlignment="Center" Margin="3">Class:</TextBlock>
+            <ComboBox Grid.Column="3" VerticalAlignment="Center" Margin="3" ItemsSource="{Binding ClassNames}" SelectedItem="{Binding ClassName}" MinWidth="150" />
+            <ComboBox Grid.Column="4" SelectedValuePath="Tag" Margin="3" SelectedValue="{Binding Bitness, Mode=TwoWay}">
+                <ComboBox.Items>
+                    <ComboBoxItem Content="32 bit" Tag="32" />
+                    <ComboBoxItem Content="64 bit" Tag="64" />
+                </ComboBox.Items>
+            </ComboBox>
+            <Button Grid.Column="5" Margin="3" Command="{Binding LoadCommand}">Load</Button>
+        </Grid>
+        <TabControl Name="PluginTabs" ItemsSource="{Binding Plugins}" SelectedItem="{Binding SelectedPlugin}">
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <ContentPresenter Content="{Binding Title}" />
+                        <Button Style="{StaticResource CloseButtonStyle}" Margin="3, 0,-7,0" Click="TabClose_Click" />
+                    </StackPanel>
+                    
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <ContentPresenter Content="{Binding View}" />
+                    </ScrollViewer>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+    </DockPanel>
+</Window>

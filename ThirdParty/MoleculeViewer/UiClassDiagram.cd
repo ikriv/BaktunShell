@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.4" />
+  <Class Name="MoleculeViewer.ArtifactControl">
+    <Position X="6.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ArtifactControl.cs</FileName>
+      <HashCode>AAAAAAAAAAAAQAACEAAAAABIAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="pdbViewer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MoleculeViewer.ArtifactViewer">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ArtifactViewer.cs</FileName>
+      <HashCode>UBAA0JAAAIKQUAASgAAAAAAAAAgCACAAMACAQYAgCFA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="HoverObject" />
+      <Property Name="Entity" />
+      <Property Name="ContextMenuHoverObject" />
+    </ShowAsAssociation>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="MoleculeViewer.HoverPopup">
+    <Position X="6.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>HoverPopup.cs</FileName>
+      <HashCode>AAAQAAiAABICAAAAAAAAAIIAAAAAAAIIAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="hoverObject" />
+      <Field Name="artifactViewer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MoleculeViewer.PdbViewer">
+    <Position X="3.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PdbViewer.cs</FileName>
+      <HashCode>ABAAAAkAQAAQUCAAAQAAAAAAAQgGEAAACACABYAAEBA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="structureControl" />
+      <Field Name="residueControl" />
+      <Field Name="molecule" />
+      <Field Name="actionIndicator" />
+      <Property Name="ActionType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MoleculeViewer.MoleculeViewControl">
+    <Position X="9.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>MoleculeViewControl.cs</FileName>
+      <HashCode>AAAEAAAIAAAAAAAAAAAAAAAIAAAIAAAACAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="MoleculeViewer.PdbViewState">
+    <Position X="8.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PdbViewState.cs</FileName>
+      <HashCode>AAAAAAAAAAIAAIACAAKAAAACAAEAAACgAAAAoIAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="MoleculeViewer.ResidueControl">
+    <Position X="10.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ResidueControl.cs</FileName>
+      <HashCode>IAAEAACAAIQA0AAAAAABgIAkAAQCwAAAACAAAAAAIEA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="MoleculeViewer.ResidueStripItem">
+    <Position X="8.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ResidueStripItem.cs</FileName>
+      <HashCode>AAAAAAAAEAAAgBAAAAAAAEBAAAAAgAAAAIAAAEAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Residue" />
+    </ShowAsAssociation>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="MoleculeViewer.ResidueStripItem.ActionBorderType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ResidueStripItem.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+  </Class>
+  <Class Name="MoleculeViewer.StructureControl">
+    <Position X="8" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>StructureControl.cs</FileName>
+      <HashCode>MAAEIAABAgAQUQABBIAAAACsFApCAACgUABAAQAAACA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="MoleculeViewer.ViewState">
+    <Position X="8.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ViewState.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAEAAAAAAAAAAIAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoleculeViewer.Residue" Collapsed="true">
+    <Position X="3.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Residue.cs</FileName>
+      <HashCode>BoQBswIAg6oAAAoYAAwKEAjBAgAKQQKgGAjIABQoSgI=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="MoleculeViewer.Residue.SelectionType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Residue.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+  </Class>
+  <Class Name="MoleculeViewer.HoverObject">
+    <Position X="3.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>HoverObject.cs</FileName>
+      <HashCode>AAAAEAAAAAAAAAAAAABAAAAAQAAAAAAgAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="MoleculeViewer.LocalEntity">
+    <Position X="3.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>LocalEntity.cs</FileName>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="MoleculeViewer.Molecule" Collapsed="true">
+    <Position X="0.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Molecule.cs</FileName>
+      <HashCode>BAIBgAEIA6IAQAoACEAMAEIAAgJjIAEA2QhAAIQKACA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="MoleculeViewer.ActionIndicator">
+    <Position X="0.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ActionIndicator.xaml.cs</FileName>
+      <HashCode>AAQAAAAAAAAAAAIAAAAQAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="MoleculeViewer.PdbActionType">
+    <Position X="0.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PdbActionType.cs</FileName>
+      <HashCode>AAAAAAAAMIAABABAEAAAAAAAEAAIAAAAAAAE4AEQAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+</ClassDiagram>

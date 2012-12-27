@@ -1,0 +1,397 @@
+﻿<UserControl x:Class="Smith.WPF.HtmlEditor.HtmlEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+             xmlns:local="clr-namespace:Smith.WPF.HtmlEditor"
+             xmlns:resc="clr-namespace:Smith.WPF.HtmlEditor.Resources"
+             x:Name="This">
+    <UserControl.Resources>
+        <Style x:Key="ToolBarImage"
+               TargetType="{x:Type Image}">
+            <Setter Property="Width"
+                    Value="16" />
+            <Setter Property="Height"
+                    Value="16" />
+        </Style>
+        <Style x:Key="ViewTypeToggle"
+               TargetType="{x:Type RadioButton}">
+            <Setter Property="Margin"
+                    Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <Border x:Name="Bd"
+                                Padding="4,1"
+                                BorderBrush="Transparent"
+                                BorderThickness="1">
+                            <ContentPresenter Content="{TemplateBinding Content}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked"
+                                     Value="True">
+                                <Setter Property="Background"
+                                        Value="#333399FF"
+                                        TargetName="Bd" />
+                                <Setter Property="BorderBrush"
+                                        Value="#FF3399FF"
+                                        TargetName="Bd" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ToggleContextMenu"
+               TargetType="{x:Type ContextMenu}">
+            <Setter Property="Background"
+                    Value="#FFF" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContextMenu}">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ItemsPresenter Margin="{TemplateBinding Padding}"
+                                            SnapsToDevicePixels="true" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="{x:Type MenuItem}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type MenuItem}">
+                                    <ContentPresenter Margin="{TemplateBinding Padding}"
+                                                      ContentSource="Header"
+                                                      RecognizesAccessKey="False" />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <UserControl.CommandBindings>
+
+        <CommandBinding Command="local:HtmlEditingCommands.Bold"
+                        Executed="BoldExecuted"
+                        CanExecute="EditingCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditingCommands.Italic"
+                        Executed="ItalicExecuted"
+                        CanExecute="EditingCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditingCommands.Underline"
+                        Executed="UnderlineExecuted"
+                        CanExecute="EditingCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditingCommands.Subscript"
+                        Executed="SubscriptExecuted"
+                        CanExecute="SubscriptCanExecute" />
+        <CommandBinding Command="local:HtmlEditingCommands.Superscript"
+                        Executed="SuperscriptExecuted"
+                        CanExecute="SuperscriptCanExecute" />
+        <CommandBinding Command="local:HtmlEditingCommands.ClearStyle"
+                        Executed="ClearStyleExecuted"
+                        CanExecute="EditingCommandCanExecute" />
+
+        <CommandBinding Command="local:HtmlEditingCommands.Indent"
+                        Executed="IndentExecuted"
+                        CanExecute="EditingCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditingCommands.Outdent"
+                        Executed="OutdentExecuted"
+                        CanExecute="EditingCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditingCommands.BubbledList"
+                        Executed="BubbledListExecuted"
+                        CanExecute="EditingCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditingCommands.NumericList"
+                        Executed="NumericListExecuted"
+                        CanExecute="EditingCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditingCommands.JustifyLeft"
+                        Executed="JustifyLeftExecuted"
+                        CanExecute="EditingCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditingCommands.JustifyRight"
+                        Executed="JustifyRightExecuted"
+                        CanExecute="EditingCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditingCommands.JustifyCenter"
+                        Executed="JustifyCenterExecuted"
+                        CanExecute="EditingCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditingCommands.JustifyFull"
+                        Executed="JustifyFullExecuted"
+                        CanExecute="EditingCommandCanExecute" />
+
+        <CommandBinding Command="local:HtmlEditingCommands.InsertHyperlink"
+                        Executed="InsertHyperlinkExecuted"
+                        CanExecute="EditingCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditingCommands.InsertImage"
+                        Executed="InsertImageExecuted"
+                        CanExecute="EditingCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditingCommands.InsertTable"
+                        Executed="InsertTableExecuted"
+                        CanExecute="EditingCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditingCommands.InsertCodeBlock"
+                        Executed="InsertCodeBlockExecuted"
+                        CanExecute="EditingCommandCanExecute" />
+    </UserControl.CommandBindings>
+    <UserControl.ContextMenu>
+        <ContextMenu x:Name="EditingContextMenu">
+            <ContextMenu.CommandBindings>
+                <CommandBinding Command="Undo"
+                                Executed="UndoExecuted"
+                                CanExecute="UndoCanExecute" />
+                <CommandBinding Command="Redo"
+                                Executed="RedoExecuted"
+                                CanExecute="RedoCanExecute" />
+                <CommandBinding Command="Cut"
+                                Executed="CutExecuted"
+                                CanExecute="CutCanExecute" />
+                <CommandBinding Command="Copy"
+                                Executed="CopyExecuted"
+                                CanExecute="CopyCanExecute" />
+                <CommandBinding Command="Paste"
+                                Executed="PasteExecuted"
+                                CanExecute="PasteCanExecute" />
+                <CommandBinding Command="Delete"
+                                Executed="DeleteExecuted"
+                                CanExecute="DeleteCanExecute" />
+                <CommandBinding Command="SelectAll"
+                                Executed="SelectAllExecuted" />
+            </ContextMenu.CommandBindings>
+            <MenuItem Header="{x:Static resc:UiText.Cmd_Undo}"
+                      Command="Undo"
+                      CommandTarget="{Binding ElementName=This}">
+                <MenuItem.Icon>
+                    <Image Style="{StaticResource ToolBarImage}"
+                           Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/undo.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="{x:Static resc:UiText.Cmd_Redo}"
+                      Command="Redo"
+                      CommandTarget="{Binding ElementName=This}">
+                <MenuItem.Icon>
+                    <Image Style="{StaticResource ToolBarImage}"
+                           Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/redo.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <Separator Margin="0,-2" />
+            <MenuItem Header="{x:Static resc:UiText.Cmd_Cut}"
+                      Command="Cut"
+                      CommandTarget="{Binding ElementName=This}">
+                <MenuItem.Icon>
+                    <Image Style="{StaticResource ToolBarImage}"
+                           Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/cut.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="{x:Static resc:UiText.Cmd_Copy}"
+                      Command="Copy"
+                      CommandTarget="{Binding ElementName=This}">
+                <MenuItem.Icon>
+                    <Image Style="{StaticResource ToolBarImage}"
+                           Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/copy.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="{x:Static resc:UiText.Cmd_Paste}"
+                      Command="Paste"
+                      CommandTarget="{Binding ElementName=This}">
+                <MenuItem.Icon>
+                    <Image Style="{StaticResource ToolBarImage}"
+                           Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/paste.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="{x:Static resc:UiText.Cmd_Delete}"
+                      Command="Delete"
+                      CommandTarget="{Binding ElementName=This}">
+                <MenuItem.Icon>
+                    <Image Style="{StaticResource ToolBarImage}"
+                           Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/del.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <Separator Margin="0,-2" />
+            <MenuItem Header="{x:Static resc:UiText.Cmd_SelectAll}"
+                      Command="SelectAll"
+                      CommandTarget="{Binding ElementName=This}" />
+        </ContextMenu>
+    </UserControl.ContextMenu>
+    <Grid>
+        <DockPanel>
+            <ToolBarTray DockPanel.Dock="Top">
+                <ToolBar x:Name="CommandBar">
+                    <ComboBox x:Name="FontFamilyList"
+                              Width="128">
+                        <ComboBox.ItemContainerStyle>
+                            <Style TargetType="{x:Type ComboBoxItem}">
+                                <Setter Property="FontFamily"
+                                        Value="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" />
+                                <Setter Property="FontSize"
+                                        Value="14" />
+                            </Style>
+                        </ComboBox.ItemContainerStyle>
+                    </ComboBox>
+                    <ComboBox x:Name="FontSizeList"
+                              Width="42">
+                        <ComboBox.ItemContainerStyle>
+                            <Style TargetType="{x:Type ComboBoxItem}">
+                                <Setter Property="FontSize"
+                                        Value="{Binding Size}" />
+                            </Style>
+                        </ComboBox.ItemContainerStyle>
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Text}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <ToggleButton x:Name="ToggleBold"
+                                  ToolTip="{x:Static resc:UiText.Button_Bold}"
+                                  Command="local:HtmlEditingCommands.Bold">
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/bold.png" />
+                    </ToggleButton>
+                    <ToggleButton x:Name="ToggleItalic"
+                                  ToolTip="{x:Static resc:UiText.Button_Italic}"
+                                  Command="local:HtmlEditingCommands.Italic">
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/italic.png" />
+                    </ToggleButton>
+                    <ToggleButton x:Name="ToggleUnderline"
+                                  ToolTip="{x:Static resc:UiText.Button_Underline}"
+                                  Command="local:HtmlEditingCommands.Underline">
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/underline.png" />
+                    </ToggleButton>
+                    <ToggleButton x:Name="ToggleSubscript"
+                                  ToolTip="{x:Static resc:UiText.Button_Subscript}"
+                                  Command="local:HtmlEditingCommands.Subscript">
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/subscript.png" />
+                    </ToggleButton>
+                    <ToggleButton x:Name="ToggleSuperscript"
+                                  ToolTip="{x:Static resc:UiText.Button_Superscript}"
+                                  Command="local:HtmlEditingCommands.Superscript">
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/superscript.png" />
+                    </ToggleButton>
+                    <ToggleButton x:Name="ToggleFontColor"
+                                  ToolTip="{x:Static resc:UiText.Button_FontColor}">
+                        <ToggleButton.ContextMenu>
+                            <ContextMenu x:Name="FontColorContextMenu"
+                                         Style="{StaticResource ToggleContextMenu}">
+                                <local:ColorPicker x:Name="FontColorPicker" />
+                            </ContextMenu>
+                        </ToggleButton.ContextMenu>
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/fontcolor.png" />
+                    </ToggleButton>
+                    <ToggleButton x:Name="ToggleLineColor"
+                                  ToolTip="{x:Static resc:UiText.Button_LineColor}">
+                        <ToggleButton.ContextMenu>
+                            <ContextMenu x:Name="LineColorContextMenu"
+                                         Style="{StaticResource ToggleContextMenu}">
+                                <local:ColorPicker x:Name="LineColorPicker" />
+                            </ContextMenu>
+                        </ToggleButton.ContextMenu>
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/linecolor.png" />
+                    </ToggleButton>
+                    <Button x:Name="ClearStyleButton"
+                            ToolTip="{x:Static resc:UiText.Button_ClearStyle}"
+                            Command="local:HtmlEditingCommands.ClearStyle">
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/erase.png" />
+                    </Button>
+                    <Separator />
+
+                    <Button ToolTip="{x:Static resc:UiText.Button_Indent}"
+                            Command="local:HtmlEditingCommands.Indent">
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/indent.png" />
+                    </Button>
+                    <Button ToolTip="{x:Static resc:UiText.Button_Outdent}"
+                            Command="local:HtmlEditingCommands.Outdent">
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/outdent.png" />
+                    </Button>
+                    <ToggleButton x:Name="ToggleBulletedList"
+                                  ToolTip="{x:Static resc:UiText.Button_BulletedList}"
+                                  Command="local:HtmlEditingCommands.BubbledList">
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/listbullets.png" />
+                    </ToggleButton>
+                    <ToggleButton x:Name="ToggleNumberedList"
+                                  ToolTip="{x:Static resc:UiText.Button_NumberedList}"
+                                  Command="local:HtmlEditingCommands.NumericList">
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/listnumbered.png" />
+                    </ToggleButton>
+                    <RadioButton x:Name="ToggleJustifyLeft"
+                                 ToolTip="{x:Static resc:UiText.Button_JustifyLeft}"
+                                 GroupName="Alignment"
+                                 Command="local:HtmlEditingCommands.JustifyLeft">
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/left.png" />
+                    </RadioButton>
+                    <RadioButton x:Name="ToggleJustifyCenter"
+                                 ToolTip="{x:Static resc:UiText.Button_JustifyCenter}"
+                                 GroupName="Alignment"
+                                 Command="local:HtmlEditingCommands.JustifyCenter">
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/center.png" />
+                    </RadioButton>
+                    <RadioButton x:Name="ToggleJustifyRight"
+                                 ToolTip="{x:Static resc:UiText.Button_JustifyRight}"
+                                 GroupName="Alignment"
+                                 Command="local:HtmlEditingCommands.JustifyRight">
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/right.png" />
+                    </RadioButton>
+                    <RadioButton x:Name="ToggleJustifyFull"
+                                 ToolTip="{x:Static resc:UiText.Button_JustifyFull}"
+                                 GroupName="Alignment"
+                                 Command="local:HtmlEditingCommands.JustifyFull">
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/stretch.png" />
+                    </RadioButton>
+                    <Separator />
+
+                    <Button x:Name="InsertHyperlink"
+                            ToolTip="{x:Static resc:UiText.Button_InsertHyperlink}"
+                            Command="local:HtmlEditingCommands.InsertHyperlink">
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/hyperlink.png" />
+                    </Button>
+                    <Button x:Name="InsertImage"
+                            ToolTip="{x:Static resc:UiText.Button_InsertImage}"
+                            Command="local:HtmlEditingCommands.InsertImage">
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/image.png" />
+                    </Button>
+                    <Button x:Name="InsertTable"
+                            ToolTip="{x:Static resc:UiText.Button_InsertTable}"
+                            Command="local:HtmlEditingCommands.InsertTable">
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/table.png" />
+                    </Button>
+                    <Separator />
+                    <ToggleButton x:Name="ToggleCodeMode"
+                                  ToolTip="{x:Static resc:UiText.Button_CodeMode}">
+                        <Image Style="{StaticResource ToolBarImage}"
+                               Source="/Smith.WPF.HtmlEditor;Component/Resources/Images/htmlcode.png" />
+                    </ToggleButton>
+                </ToolBar>
+            </ToolBarTray>
+            <Grid>
+                <TextBox x:Name="CodeEditor"
+                         AcceptsReturn="True"
+                         AcceptsTab="True"
+                         AutoWordSelection="True"
+                         VerticalScrollBarVisibility="Auto"
+                         TextWrapping="Wrap" />
+                <WindowsFormsHost x:Name="BrowserHost">
+                    <wf:WebBrowser x:Name="VisualEditor" />
+                </WindowsFormsHost>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</UserControl>

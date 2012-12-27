@@ -1,0 +1,51 @@
+﻿<Window x:Class="Smith.WPF.HtmlEditor.Demo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ex="clr-namespace:Smith.WPF.HtmlEditor;assembly=Smith.WPF.HtmlEditor"
+        xmlns:resc="clr-namespace:Smith.WPF.HtmlEditor.Demo.Resources"
+        WindowStartupLocation="CenterScreen"
+        Title="Smith Html Editor Demo"
+        Height="400"
+        Width="680">
+    <Window.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Padding"
+                    Value="0" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center" />
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Padding"
+                    Value="4,2" />
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        <Border DockPanel.Dock="Bottom"
+                BorderBrush="#FFC5C5C5"
+                BorderThickness="0,1,0,0"
+                Padding="8">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Right"
+                            Orientation="Horizontal">
+                    <Button x:Name="BindingTestButton"
+                            Content="Binding Test"
+                            Margin="8,0" />
+                    <Button x:Name="GetHtmlButton"
+                            Content="{x:Static resc:Resources.Button_GetHtml}"
+                            Margin="8,0" />
+                    <Button x:Name="GetTextButton"
+                            Content="{x:Static resc:Resources.Button_GetText}"
+                            Margin="8,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="{x:Static resc:Resources.Label_WordCount}" />
+                    <Label x:Name="WordCountText"
+                           Content="0" />
+                </StackPanel>
+            </DockPanel>
+        </Border>
+        <ex:HtmlEditor x:Name="Editor" />
+    </DockPanel>
+</Window>

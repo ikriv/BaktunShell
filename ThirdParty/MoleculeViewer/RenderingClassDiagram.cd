@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.4" />
+  <Class Name="MoleculeViewer.Atom">
+    <Position X="3.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Atom.cs</FileName>
+      <HashCode>AABR9AgQAawAEQAhAAkBJIERAAALiUAhCIgAAAAIEgE=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ColorScheme" />
+      <Property Name="Molecule" />
+      <Property Name="Residue" />
+    </ShowAsAssociation>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Residue" Type="MoleculeViewer.Residue" FixedFromPoint="true">
+      <Path>
+        <Point X="5" Y="2.875" />
+        <Point X="12.75" Y="2.875" />
+      </Path>
+    </AssociationLine>
+  </Class>
+  <Class Name="MoleculeViewer.CAlpha">
+    <Position X="3.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CAlpha.cs</FileName>
+      <HashCode>AAAAAACAAAAAgQAAAAAAAAAAAAACAAAEAAAAgAAAAJQ=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="MoleculeViewer.Cartoon">
+    <Position X="15.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Cartoon.cs</FileName>
+      <HashCode>AAAAQAACADAAAIAgAAAAAAACAAQCgAISAIgEoQAIEEA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="MoleculeViewer.Chain">
+    <Position X="10.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Chain.cs</FileName>
+      <HashCode>AAAAAAAAAAAAQAAAgEAAAAABACAAAQAgAAAAAAQAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Residues" />
+    </ShowAsCollectionAssociation>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="MoleculeViewer.ChainAtom">
+    <Position X="3.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ChainAtom.cs</FileName>
+      <HashCode>AAAQAAAAAAAAAQAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoleculeViewer.Helix">
+    <Position X="9.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Helix.cs</FileName>
+      <HashCode>ABAAAAABAAAAAAAAAAAAAIAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoleculeViewer.HetAtom">
+    <Position X="5.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>HetAtom.cs</FileName>
+      <HashCode>AAAQAAAAAAAAAQAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoleculeViewer.HoverObject" Collapsed="true">
+    <Position X="8.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>HoverObject.cs</FileName>
+      <HashCode>AAAAEAAAAAAAAAAAAABAAAAAQAAAAAAgAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoleculeViewer.Molecule">
+    <Position X="8" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Molecule.cs</FileName>
+      <HashCode>BAIBgAEIA6IAQAoACEAMAEIAAgJjIAEA2QhAAIQKACA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ColorScheme" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Atoms" />
+      <Property Name="SelectedAtoms" />
+      <Property Name="Residues" />
+      <Property Name="Chains" />
+    </ShowAsCollectionAssociation>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="ColorScheme" Type="MoleculeViewer.ColorScheme" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8" Y="5.176" />
+        <Point X="6.375" Y="5.176" />
+        <Point X="6.375" Y="4.948" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.212" Y="0.06" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="MoleculeViewer.Residue">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Residue.cs</FileName>
+      <HashCode>BoQBswIAg6oAAAoYAAwKEAjBAgAKQQKgGAjIABQoSgI=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Chain" />
+      <Property Name="ColorScheme" />
+      <Property Name="Ribbon" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Atoms" />
+      <Property Name="ResidueStripItems" />
+    </ShowAsCollectionAssociation>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="MoleculeViewer.Residue.SelectionType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Residue.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <AssociationLine Name="Atoms" Type="MoleculeViewer.Atom" FixedFromPoint="true">
+      <Path>
+        <Point X="12.75" Y="3.312" />
+        <Point X="5" Y="3.312" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="ColorScheme" Type="MoleculeViewer.ColorScheme" FixedFromPoint="true">
+      <Path>
+        <Point X="12.75" Y="3.75" />
+        <Point X="7.5" Y="3.75" />
+      </Path>
+    </AssociationLine>
+  </Class>
+  <Class Name="MoleculeViewer.Ribbon">
+    <Position X="15.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Ribbon.cs</FileName>
+      <HashCode>AAAAMCAQQBAAQABAAEAAAEADAABAIgAEQACIIAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Residues" />
+    </ShowAsCollectionAssociation>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="MoleculeViewer.Sheet">
+    <Position X="11.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Sheet.cs</FileName>
+      <HashCode>ABAAAAABAAAAAAAAAAAAAIAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoleculeViewer.Sphere">
+    <Position X="16" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Sphere.cs</FileName>
+      <HashCode>AAAAEAACAQAAAAAAAAAAEAAAAAABBAAAQQAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoleculeViewer.Stick">
+    <Position X="13.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Stick.cs</FileName>
+      <HashCode>AAAAAAAACAAAAAgAAAEAEAABAAAAAAAAAAAAAAEAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoleculeViewer.Structure">
+    <Position X="10.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Structure.cs</FileName>
+      <HashCode>ABAAAAAhAAAAAAABAAAAAIABAAAAAQABAAAEgAAACAA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="MoleculeViewer.Water">
+    <Position X="5.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Water.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoleculeViewer.ResidueStripItem">
+    <Position X="15.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ResidueStripItem.cs</FileName>
+      <HashCode>AAAAAAAAEAAAgBAAAAAAAEBAAAAAgAAAAIAAAEAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Residue" />
+    </ShowAsAssociation>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="MoleculeViewer.ResidueStripItem.ActionBorderType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ResidueStripItem.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+  </Class>
+  <Enum Name="MoleculeViewer.ColorScheme">
+    <Position X="6" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ColorScheme.cs</FileName>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAQEAAAAAAAAAIAAAAAEAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+</ClassDiagram>

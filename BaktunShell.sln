@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shell", "Shell\Shell.csproj", "{923A4FF0-8C84-4C8F-BDF2-3EDB39094C25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginHost", "PluginHost\PluginHost.csproj", "{EEBDD576-CFBB-4254-ABE0-610F6050FBD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamplePlugin", "SamplePlugin\SamplePlugin.csproj", "{5BFC0354-3CEA-41D2-A08C-2CB65E133E85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{1B726A86-5D0C-40C3-BA15-128260CB38A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThirdParty", "ThirdParty", "{892E6125-A172-494F-8F1D-605F52683132}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoleculeViewer", "ThirdParty\MoleculeViewer\MoleculeViewer.csproj", "{E3A83E67-A600-4CF4-A052-0FF763270E1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmithHtmlEditor", "ThirdParty\SmithHtmlEditor\SmithHtmlEditor\SmithHtmlEditor.csproj", "{84BADDA1-AB3A-4064-B87E-178D7446901D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginHost64", "PluginHost64\PluginHost64.csproj", "{6290D0EC-712C-44A6-9A4A-1E2AE4E35EA2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Release|Mixed Platforms = Release|Mixed Platforms
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{923A4FF0-8C84-4C8F-BDF2-3EDB39094C25}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{923A4FF0-8C84-4C8F-BDF2-3EDB39094C25}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{923A4FF0-8C84-4C8F-BDF2-3EDB39094C25}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{923A4FF0-8C84-4C8F-BDF2-3EDB39094C25}.Release|Mixed Platforms.Build.0 = Release|x86
+		{EEBDD576-CFBB-4254-ABE0-610F6050FBD0}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{EEBDD576-CFBB-4254-ABE0-610F6050FBD0}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{EEBDD576-CFBB-4254-ABE0-610F6050FBD0}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{EEBDD576-CFBB-4254-ABE0-610F6050FBD0}.Release|Mixed Platforms.Build.0 = Release|x86
+		{5BFC0354-3CEA-41D2-A08C-2CB65E133E85}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5BFC0354-3CEA-41D2-A08C-2CB65E133E85}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5BFC0354-3CEA-41D2-A08C-2CB65E133E85}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5BFC0354-3CEA-41D2-A08C-2CB65E133E85}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{1B726A86-5D0C-40C3-BA15-128260CB38A8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{1B726A86-5D0C-40C3-BA15-128260CB38A8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{1B726A86-5D0C-40C3-BA15-128260CB38A8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{1B726A86-5D0C-40C3-BA15-128260CB38A8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E3A83E67-A600-4CF4-A052-0FF763270E1F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E3A83E67-A600-4CF4-A052-0FF763270E1F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E3A83E67-A600-4CF4-A052-0FF763270E1F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E3A83E67-A600-4CF4-A052-0FF763270E1F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{84BADDA1-AB3A-4064-B87E-178D7446901D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{84BADDA1-AB3A-4064-B87E-178D7446901D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{84BADDA1-AB3A-4064-B87E-178D7446901D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{84BADDA1-AB3A-4064-B87E-178D7446901D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6290D0EC-712C-44A6-9A4A-1E2AE4E35EA2}.Debug|Mixed Platforms.ActiveCfg = Debug|x64
+		{6290D0EC-712C-44A6-9A4A-1E2AE4E35EA2}.Debug|Mixed Platforms.Build.0 = Debug|x64
+		{6290D0EC-712C-44A6-9A4A-1E2AE4E35EA2}.Release|Mixed Platforms.ActiveCfg = Release|x64
+		{6290D0EC-712C-44A6-9A4A-1E2AE4E35EA2}.Release|Mixed Platforms.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E3A83E67-A600-4CF4-A052-0FF763270E1F} = {892E6125-A172-494F-8F1D-605F52683132}
+		{84BADDA1-AB3A-4064-B87E-178D7446901D} = {892E6125-A172-494F-8F1D-605F52683132}
+	EndGlobalSection
+EndGlobal
