@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExceptions", "TestExceptions\TestExceptions.csproj", "{0D686CE2-80AF-4F1C-B024-845E933B55F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitnessCheck", "BitnessCheck\BitnessCheck.csproj", "{BD283195-C479-4A52-95A9-536F83908AEC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolarSystem", "SolarSystem", "{6EA5FDEE-1143-4F0A-8B1A-EF22D69289BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Surfaces", "Surfaces\Surfaces.csproj", "{80EE383C-DB1B-4D2D-BF14-4A97FFF0A823}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem", "SolarSystem\SolarSystem.csproj", "{2F30E9AF-8256-40AF-B356-EA14E55CE9D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseLogService", "UseLogService\UseLogService.csproj", "{6DE97A2B-7D1F-4A22-A45A-02C8765C9529}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D686CE2-80AF-4F1C-B024-845E933B55F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D686CE2-80AF-4F1C-B024-845E933B55F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D686CE2-80AF-4F1C-B024-845E933B55F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D686CE2-80AF-4F1C-B024-845E933B55F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD283195-C479-4A52-95A9-536F83908AEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD283195-C479-4A52-95A9-536F83908AEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD283195-C479-4A52-95A9-536F83908AEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD283195-C479-4A52-95A9-536F83908AEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80EE383C-DB1B-4D2D-BF14-4A97FFF0A823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80EE383C-DB1B-4D2D-BF14-4A97FFF0A823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80EE383C-DB1B-4D2D-BF14-4A97FFF0A823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80EE383C-DB1B-4D2D-BF14-4A97FFF0A823}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F30E9AF-8256-40AF-B356-EA14E55CE9D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F30E9AF-8256-40AF-B356-EA14E55CE9D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F30E9AF-8256-40AF-B356-EA14E55CE9D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F30E9AF-8256-40AF-B356-EA14E55CE9D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DE97A2B-7D1F-4A22-A45A-02C8765C9529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DE97A2B-7D1F-4A22-A45A-02C8765C9529}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DE97A2B-7D1F-4A22-A45A-02C8765C9529}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DE97A2B-7D1F-4A22-A45A-02C8765C9529}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{80EE383C-DB1B-4D2D-BF14-4A97FFF0A823} = {6EA5FDEE-1143-4F0A-8B1A-EF22D69289BD}
+		{2F30E9AF-8256-40AF-B356-EA14E55CE9D7} = {6EA5FDEE-1143-4F0A-8B1A-EF22D69289BD}
+	EndGlobalSection
+EndGlobal

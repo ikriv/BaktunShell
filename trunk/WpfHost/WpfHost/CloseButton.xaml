@@ -1,0 +1,82 @@
+﻿<!-- Copyright (c) 2013 Ivan Krivyakov
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0 -->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <LinearGradientBrush x:Key="HoverButton_PressedBackground" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#F3F3F3" Offset="0"/>
+        <GradientStop Color="#EBEBEB" Offset="0.5"/>
+        <GradientStop Color="#DDDDDD" Offset="0.5"/>
+        <GradientStop Color="#CDCDCD" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="HoverButton_OverBackground" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#FFFAFAFA" Offset="0"/>
+        <GradientStop Color="#FFE0E0E3" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="CloseButton_PressedBackground" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#FFE0E0E2" Offset="0"/>
+        <GradientStop Color="#FFF8F8F8" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="HoverButton_NormalBorder" Color="#FF969696"/>
+
+    <Style x:Key="HoverButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Background" Value="{StaticResource HoverButton_PressedBackground}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource HoverButton_NormalBorder}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="4"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border SnapsToDevicePixels="true" x:Name="Chrome" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2" Opacity="0" />
+                        <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" TargetName="Chrome" Value="1"/>
+                            <Setter Property="Background" TargetName="Chrome" Value="{DynamicResource HoverButton_OverBackground}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" TargetName="Chrome" Value="1"/>
+                            <Setter Property="Background" TargetName="Chrome" Value="{DynamicResource CloseButton_PressedBackground}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="#ADADAD"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Path x:Key="CloseButton_X" 
+          x:Shared="False"
+          Stretch="Fill" 
+          StrokeThickness="0.5" 
+          Stroke="#FF333333" 
+          Data="F1 M 2.28484e-007,1.33331L 1.33333,0L 4.00001,2.66669L 6.66667,6.10352e-005L 8,1.33331L 5.33334,4L 8,6.66669L 6.66667,8L 4,5.33331L 1.33333,8L 1.086e-007,6.66669L 2.66667,4L 2.28484e-007,1.33331 Z " 
+          HorizontalAlignment="Stretch" 
+          VerticalAlignment="Stretch" />
+
+    <Style x:Key="CloseButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource HoverButtonStyle}">
+        <Style.Resources>
+            <Style TargetType="{x:Type Path}">
+                <Setter Property="Fill" Value="#FF969696" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                        <Setter Property="Fill" Value="#FFB83C3D" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Style.Resources>
+        <Setter Property="Content" Value="{StaticResource CloseButton_X}" />
+    </Style>
+</ResourceDictionary>
